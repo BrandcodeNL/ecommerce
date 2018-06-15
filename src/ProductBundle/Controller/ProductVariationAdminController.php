@@ -54,7 +54,7 @@ class ProductVariationAdminController extends Controller
         $product = $this->admin->getParent()->getSubject();
 
         if ($request->isMethod('POST')) {
-            $form->submit($request);
+            $form->submit($request->request->get($form->getName()));
 
             if ($form->isValid()) {
                 $number = $form->get('number')->getData();
